@@ -19,23 +19,32 @@ function Navbar({ setIsAuthenticated }) {
     }}>
       <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
         <h2 style={{ margin: 0 }}>Sistema React</h2>
+        
+        {/* Links de Navegação */}
         <Link to="/home" style={{ color: 'white', textDecoration: 'none' }}>
           Home
         </Link>
+        
         <Link to="/cadastro-perfis" style={{ color: 'white', textDecoration: 'none' }}>
           Perfis
         </Link>
+        
         <Link to="/cadastro-usuarios" style={{ color: 'white', textDecoration: 'none' }}>
           Usuários
         </Link>
+        
+        <Link to="/bancas" style={{ color: 'white', textDecoration: 'none' }}>
+          Bancas
+        </Link>
+        
+        {/* NOVO LINK PARA CURSOS */}
+        <Link to="/cursos" style={{ color: 'white', textDecoration: 'none' }}>
+          Cursos
+        </Link>
+        
         <Link to="/cadastro-outros" style={{ color: 'white', textDecoration: 'none' }}>
           Outros
         </Link>
-
-        <Link to="/bancas" style={{ color: 'white', textDecoration: 'none' }}>
-  Gerenciar Bancas
-</Link>
-
       </div>
       
       <button 

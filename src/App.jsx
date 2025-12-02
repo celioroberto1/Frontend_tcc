@@ -7,7 +7,8 @@ import Navbar from './componentes/Navbar'
 import Home from './pages/Home'
 import CadastroPerfis from './pages/CadastroPerfis'
 import CadastroUsuarios from './pages/CadastroUsuarios'
-import GerenciarBancas from './pages/GerenciarBancas' // <-- ADICIONADO AQUI
+import GerenciarBancas from './pages/GerenciarBancas'
+import GerenciarCursos from './pages/GerenciarCursos' // <-- ADICIONE AQUI
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
@@ -71,7 +72,7 @@ function App() {
           }
         />
 
-        {/* --- GERENCIAR BANCAS (NOVO) --- */}
+        {/* --- GERENCIAR BANCAS --- */}
         <Route 
           path="/bancas" 
           element={
@@ -80,6 +81,21 @@ function App() {
                   <>
                     <Navbar setIsAuthenticated={setIsAuthenticated} />
                     <GerenciarBancas />
+                  </>
+                )
+              : <Navigate to="/" />
+          }
+        />
+
+        {/* --- GERENCIAR CURSOS (NOVO) --- */}
+        <Route 
+          path="/cursos" 
+          element={
+            isAuthenticated 
+              ? (
+                  <>
+                    <Navbar setIsAuthenticated={setIsAuthenticated} />
+                    <GerenciarCursos />
                   </>
                 )
               : <Navigate to="/" />
