@@ -1,0 +1,367 @@
+:root {
+  font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+  
+  /* Cores acadêmicas - degradê principal */
+  --primary-gradient: linear-gradient(135deg, #1a237e 0%, #283593 50%, #3949ab 100%);
+  --secondary-gradient: linear-gradient(135deg, #d32f2f 0%, #f44336 50%, #ef5350 100%);
+  --accent-gradient: linear-gradient(135deg, #00695c 0%, #00897b 50%, #26a69a 100%);
+  --light-bg: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #dee2e6 100%);
+  --dark-bg: linear-gradient(135deg, #121212 0%, #1e1e1e 50%, #252525 100%);
+  
+  /* Cores de texto */
+  --text-light: #f8f9fa;
+  --text-dark: #212529;
+  --text-accent: #0d47a1;
+  
+  /* Sombras acadêmicas */
+  --shadow-light: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-medium: 0 6px 12px rgba(0, 0, 0, 0.15);
+  --shadow-heavy: 0 10px 20px rgba(0, 0, 0, 0.2);
+  
+  color-scheme: light dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Modo claro (padrão) */
+:root {
+  color: var(--text-dark);
+  background: var(--light-bg);
+  background-attachment: fixed;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+/* Modo escuro */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color: var(--text-light);
+    background: var(--dark-bg);
+  }
+}
+
+/* CORREÇÃO PRINCIPAL: Ajuste do body para centralização */
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 320px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Container principal - AGORA CENTRALIZADO */
+.academic-container {
+  max-width: 1200px;
+  width: 100%;
+  padding: 2.5rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  box-shadow: var(--shadow-heavy);
+  backdrop-filter: blur(10px);
+  margin: auto; /* Centraliza horizontalmente */
+}
+
+@media (prefers-color-scheme: dark) {
+  .academic-container {
+    background: rgba(30, 30, 30, 0.85);
+  }
+}
+
+/* Ajuste para telas pequenas - centralização mantida */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+    align-items: flex-start; /* No mobile, alinha no topo */
+    justify-content: center;
+  }
+  
+  .academic-container {
+    padding: 1.5rem;
+    margin: 20px auto; /* Mantém centralizado com margem */
+  }
+}
+
+/* Estilo para títulos acadêmicos */
+h1 {
+  font-size: 2.8em;
+  line-height: 1.2;
+  font-weight: 700;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 0.5em;
+  text-align: center;
+  letter-spacing: -0.5px;
+  position: relative;
+}
+
+h1::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: var(--accent-gradient);
+  border-radius: 2px;
+}
+
+h2 {
+  font-size: 2.2em;
+  background: var(--secondary-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 600;
+  margin-top: 1.5em;
+  text-align: center;
+}
+
+h3 {
+  font-size: 1.8em;
+  color: var(--text-accent);
+  font-weight: 500;
+  border-left: 4px solid;
+  border-image: var(--accent-gradient);
+  border-image-slice: 1;
+  padding-left: 15px;
+}
+
+/* Links acadêmicos */
+a {
+  font-weight: 600;
+  color: #1565c0;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-gradient);
+  transition: width 0.3s ease;
+}
+
+a:hover {
+  color: #0d47a1;
+}
+
+a:hover::after {
+  width: 100%;
+}
+
+/* Botões com estilo acadêmico - Centralizados */
+button {
+  border-radius: 8px;
+  border: none;
+  padding: 0.8em 1.8em;
+  font-size: 1em;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: var(--primary-gradient);
+  color: white;
+  box-shadow: var(--shadow-light);
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+  display: block;
+  margin: 20px auto; /* Centraliza botões */
+}
+
+button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-medium);
+}
+
+button:hover::before {
+  left: 100%;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 2px solid #3949ab;
+  outline-offset: 2px;
+}
+
+/* Container para grupos de botões - centralizado */
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 30px 0;
+  flex-wrap: wrap;
+}
+
+.button-group button {
+  margin: 0; /* Remove margem automática quando em grupo */
+  display: inline-block;
+}
+
+button.secondary {
+  background: var(--secondary-gradient);
+}
+
+button.accent {
+  background: var(--accent-gradient);
+}
+
+/* Cards acadêmicos para seções */
+.academic-card {
+  background: white;
+  border-radius: 10px;
+  padding: 1.8rem;
+  margin: 1.5rem 0;
+  box-shadow: var(--shadow-light);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-top: 5px solid;
+  border-image: var(--primary-gradient);
+  border-image-slice: 1;
+}
+
+.academic-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-medium);
+}
+
+@media (prefers-color-scheme: dark) {
+  .academic-card {
+    background: #2d2d2d;
+    color: #e0e0e0;
+  }
+}
+
+/* Cabeçalho acadêmico - Já centralizado */
+.academic-header {
+  text-align: center;
+  padding: 3rem 1rem;
+  background: var(--primary-gradient);
+  color: white;
+  border-radius: 0 0 20px 20px;
+  margin: -2.5rem -2.5rem 2.5rem -2.5rem; /* Compensa padding do container */
+  box-shadow: var(--shadow-medium);
+}
+
+.academic-header h1 {
+  color: white;
+  background: none;
+  font-size: 3.2em;
+  margin-bottom: 0.2em;
+}
+
+.academic-header h1::after {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.academic-header p {
+  font-size: 1.2em;
+  opacity: 0.9;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Elementos de destaque */
+.highlight {
+  background: linear-gradient(120deg, #e3f2fd 0%, #bbdefb 100%);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 6px solid #2196f3;
+  margin: 1.5rem 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  .highlight {
+    background: linear-gradient(120deg, #0d47a1 0%, #1565c0 100%);
+    color: white;
+  }
+}
+
+/* Citações acadêmicas */
+blockquote {
+  font-style: italic;
+  font-size: 1.1em;
+  padding: 1.5rem 2rem;
+  margin: 2rem 0;
+  background: linear-gradient(to right, #f5f5f5 0%, #fafafa 100%);
+  border-radius: 8px;
+  border-left: 6px solid;
+  border-image: var(--accent-gradient);
+  border-image-slice: 1;
+  box-shadow: var(--shadow-light);
+}
+
+@media (prefers-color-scheme: dark) {
+  blockquote {
+    background: linear-gradient(to right, #2a2a2a 0%, #333333 100%);
+  }
+}
+
+/* Rodapé acadêmico - Centralizado */
+.academic-footer {
+  text-align: center;
+  padding: 2rem;
+  margin: 3rem -2.5rem -2.5rem -2.5rem; /* Compensa padding do container */
+  background: var(--dark-bg);
+  color: white;
+  border-radius: 20px 20px 0 0;
+}
+
+/* Responsividade - Ajustes de centralização */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.2em;
+  }
+  
+  h2 {
+    font-size: 1.8em;
+  }
+  
+  .academic-header {
+    padding: 2rem 1rem;
+    margin: -1.5rem -1.5rem 1.5rem -1.5rem;
+  }
+  
+  .academic-header h1 {
+    font-size: 2.5em;
+  }
+  
+  .academic-footer {
+    margin: 3rem -1.5rem -1.5rem -1.5rem;
+  }
+}
+
+/* Para conteúdo de texto - Centralização opcional */
+.text-center {
+  text-align: center;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
